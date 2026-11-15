@@ -4,18 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple To-Do List</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <title>Smart Todo List</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="todo-app">
-    <h2>To-Do List</h2>
+    <h2>Smart To-Do List</h2>
+    <p class="subtitle">Organize daily tasks with automatic local saving</p>
+
     <div class="input-row">
-      <input type="text" id="task-input" placeholder="Enter a new task...">
-      <button id="add-btn">Add</button>
+      <input type="text" id="task-input" placeholder="What needs to be done?" autocomplete="off">
+      <button id="add-btn">Add Task</button>
     </div>
+
+    <!-- Filter & Counter Bar -->
+    <div class="filter-bar">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All (<span id="count-all">0</span>)</button>
+        <button class="filter-btn" data-filter="active">Active (<span id="count-active">0</span>)</button>
+        <button class="filter-btn" data-filter="completed">Done (<span id="count-completed">0</span>)</button>
+      </div>
+      <button id="clear-completed-btn" title="Clear all completed tasks">Clear Done</button>
+    </div>
+
+    <!-- Task List -->
     <ul id="task-list"></ul>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state hidden">
+      <p>No tasks found. Add a task above to get started!</p>
+    </div>
   </div>
 
   <script src="script.js"></script>
